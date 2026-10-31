@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reconciling GSTR-2B with the Purchase Register using AI, without uploading your client&#x27;s data | AI for CAs</title><meta name="description" content="Every month, someone in the office matches GSTR-2B against the purchase register. On a few hundred invoices it&#x27;s half a day of VLOOKUPs, and the hard part…">
+<link rel="canonical" href="https://rekt-osbot.github.io/ai-for-cas-site/guides/gstr2b-reconciliation-with-ai.html"><meta name="author" content="Chandan Gupta, CA, CIA">
+<meta property="og:type" content="article"><meta property="og:title" content="Reconciling GSTR-2B with the Purchase Register using AI, without uploading your client&#x27;s data | AI for CAs">
+<meta property="og:description" content="Every month, someone in the office matches GSTR-2B against the purchase register. On a few hundred invoices it&#x27;s half a day of VLOOKUPs, and the hard part…"><meta property="og:url" content="https://rekt-osbot.github.io/ai-for-cas-site/guides/gstr2b-reconciliation-with-ai.html">
+<meta property="og:image" content="https://rekt-osbot.github.io/ai-for-cas-site/cover.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="text/plain" title="llms.txt" href="https://rekt-osbot.github.io/ai-for-cas-site/llms.txt">
+<style>
+:root{--ink:#1d1a1a;--muted:#5d5656;--accent:#7A1A2B;--soft:#f6efe9;--line:#e4d8cf}
+*{box-sizing:border-box}body{margin:0;font:17px/1.65 Georgia,'Noto Serif',serif;color:var(--ink);background:#fffdfa}
+a{color:var(--accent)}main,header,footer{max-width:820px;margin:0 auto;padding:0 22px}
+header{padding-top:28px}nav a{margin-right:16px;font:600 14px system-ui,sans-serif;text-decoration:none}
+h1,h2,h3{font-family:system-ui,'Noto Sans',sans-serif;line-height:1.25}h1{font-size:2.3em;margin:.4em 0 .1em}
+h2{margin-top:2em;border-bottom:2px solid var(--line);padding-bottom:.2em}h3{margin-bottom:.2em}
+.hero{display:flex;gap:28px;align-items:center;flex-wrap:wrap}.hero img{width:210px;border-radius:4px;box-shadow:0 6px 20px #0003}
+.hero div{flex:1;min-width:260px}.sub{font-size:1.15em;color:var(--muted);margin-top:0}
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:6px;margin:6px 8px 6px 0;
+font:600 15px system-ui,sans-serif;text-decoration:none}.cta.alt{background:#fff;color:var(--accent);border:2px solid var(--accent)}
+.part{background:var(--soft);padding:10px 16px;border-radius:6px;margin-top:1.4em}.part p{margin:.2em 0 0;color:var(--muted)}
+.ch{margin:1em 0 0 4px}.ch small{color:var(--muted);font-family:system-ui,sans-serif}
+pre{white-space:pre-wrap;background:#f3eeea;border-left:3px solid var(--accent);padding:12px 14px;font:14px/1.5 ui-monospace,Menlo,monospace}
+details{border-bottom:1px solid var(--line);padding:10px 0}summary{font-weight:600;cursor:pointer;font-family:system-ui,sans-serif}
+table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid var(--line);padding:6px 8px;text-align:left}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:3em;padding:18px 22px 40px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Reconciling GSTR-2B with the Purchase Register using AI, without uploading your client's data", "description": "Every month, someone in the office matches GSTR-2B against the purchase register. On a few hundred invoices it's half a day of VLOOKUPs, and the hard part…", "author": {"@type": "Person", "name": "Chandan Gupta", "honorificSuffix": "CA, CIA", "jobTitle": "Chartered Accountant and Certified Internal Auditor", "url": "https://topmate.io/chandan_gupta31", "knowsAbout": ["Statutory audit", "Internal audit", "Internal financial controls", "Tax audit", "GST", "AI tools for accountants"]}, "datePublished": "2026-11-01", "dateModified": "2026-11-01", "inLanguage": "en-IN", "mainEntityOfPage": "https://rekt-osbot.github.io/ai-for-cas-site/guides/gstr2b-reconciliation-with-ai.html", "image": "https://rekt-osbot.github.io/ai-for-cas-site/cover.jpg", "isPartOf": {"@type": "Book", "name": "AI for CAs", "url": "https://rekt-osbot.github.io/ai-for-cas-site/"}}</script>
+</head><body>
+<header><nav><a href="https://rekt-osbot.github.io/ai-for-cas-site/">AI for CAs</a><a href="https://rekt-osbot.github.io/ai-for-cas-site/#contents">Contents</a><a href="https://rekt-osbot.github.io/ai-for-cas-site/#faq">FAQ</a>
+<a href="https://rekt-osbot.github.io/ai-for-cas-site/guides/">Free guides</a><a href="https://topmate.io/chandan_gupta31">Buy</a></nav></header>
+<main>
+<h1>Reconciling GSTR-2B with the Purchase Register using AI, without uploading your client&#x27;s data</h1><p><i>By Chandan Gupta, CA, CIA · 2026-11-01</i></p><p>Every month, someone in the office matches GSTR-2B against the purchase register. On a few hundred invoices
+it's half a day of VLOOKUPs, and the hard part was never the VLOOKUP. It's the exceptions: invoice numbers
+written differently on each side, a supplier who filed late, an entry posted twice in Tally, a GSTIN with two
+digits swapped.</p>
+<p>AI tools can now do most of this mechanical work. But two questions should come before any CA uses them on a
+client file: <strong>what leaves my laptop</strong>, and <strong>how do I know the answer is right?</strong> This article answers both
+with a method you can try today on practice data.</p>
+<h2>The rule: let the AI write the script, not read the data</h2>
+<p>If you paste a purchase register into a chatbot, every row goes to the provider's servers.</p>
+<p>There is a better pattern. Tools such as Claude Code (Anthropic's AI tool that works on files on your own
+computer) can <strong>write a short Python script, run it on your laptop, and show you only the result</strong>. The AI sees
+the column headers, a few sample rows and the totals. The full register is read by the script, on your machine.</p>
+<p>This sharply reduces what is sent. It is not a guarantee, because whatever the AI reads or prints does go to the
+provider. So keep a clean working folder with only the files the job needs, and read each permission prompt
+before you approve it.</p>
+<h2>Step 1: Look at the structure, not the data</h2>
+<p>Start by asking only for the shape of the files:</p>
+<blockquote>
+<p>This folder has two files: purchase_register.xlsx (exported from Tally) and gstr2b_jul-sep.xlsx (GSTR-2B for
+July to September). Do not read the files in full. Write and run a short Python script that prints, for each
+sheet of each file: the sheet name, the number of rows, the header rows and the first 3 data rows. Then tell me
+how the two files line up, and stop.</p>
+</blockquote>
+<p>On a practice run, this step on its own caught three things a junior often misses. The 2B header spans two
+rows. The Tally export has title rows above the data and a Grand Total line at the bottom. And the 2B shows
+credit notes as positive amounts on a separate B2B-CDNR sheet, while the books show them as negative.</p>
+<p>On a real client, this is where you catch a wrong export (a missing month, no GSTIN column) before anything is
+built on it.</p>
+<h2>Step 2: Spell out the matching rules, as you would in an audit programme</h2>
+<p>The quality of the result depends on the rules you give it. These are the ones that matter:</p>
+<ol>
+<li><strong>Clean invoice numbers before matching:</strong> upper case, remove the financial year (2025-26 or 25-26), keep only
+   the digits, drop leading zeros.</li>
+<li><strong>Match in rounds, and record the round:</strong> (a) GSTIN + invoice number as written; (b) GSTIN + cleaned invoice
+   number; (c) for what is left, cleaned number + taxable value within ₹1 + dates within 7 days where the GSTIN
+   differs. Round (c) is a <strong>probable GSTIN error, not a match</strong>.</li>
+<li><strong>Never match on invoice number alone.</strong> Each 2B row can pair with only one books row.</li>
+<li><strong>Find duplicates first:</strong> the same GSTIN and cleaned invoice number more than once in the books.</li>
+<li><strong>Compare every tax head:</strong> taxable value, IGST, CGST, SGST and cess. A difference of ₹1 or less is
+   "within tolerance"; anything more is a mismatch, with the reason.</li>
+<li><strong>Flag, don't decide:</strong> GSTINs that fail the check-digit test, and ledger heads that suggest blocked credit
+   under section 17(5) (motor car, club, food, gift, insurance). Eligibility stays your call.</li>
+</ol>
+<p>Ask for an output workbook with one sheet per bucket: matched, matched within tolerance, mismatched values, in
+books not in 2B, in 2B not in books, possible duplicates, and flagged for review.</p>
+<h2>Step 3: Control totals before conclusions</h2>
+<p>This is the step that makes the work auditable. Ask for <strong>control totals for each input and each output sheet</strong>
+(rows, taxable value, each tax head, total ITC), and for proof that the sheets add back to each input. Tie the
+books total to the register's own Grand Total line.</p>
+<p>On a 358-row practice file with fifteen planted traps, the summary read:</p>
+<pre><code>Books: 348 + 3 + 5 + 1 + 1 = 358 rows, and every amount column matches. YES
+2B:    348 + 3 + 5 + 2     = 358 rows, and every amount column matches. YES
+</code></pre>
+<p>Every row on each side lands in exactly one sheet. If the totals don't add back, nothing is "matched" yet.</p>
+<h2>What it found</h2>
+<ul>
+<li><strong>Two value mismatches.</strong> In one, IGST in the books was ₹5,790 short of 2B. In another, the taxable value
+  differed by ₹27,000.</li>
+<li><strong>Three probable GSTIN errors</strong> for one supplier, where two digits of the PAN portion were swapped. The output
+  said "probable GSTIN error, NOT a match" instead of quietly pairing them. That wording matters.</li>
+<li><strong>One invoice in the books but not in 2B</strong> (₹49,500 of ITC at risk, a late filer), and <strong>two in 2B but not in
+  the books</strong>, one of them a supplier credit note.</li>
+<li><strong>One duplicate</strong> Tally entry.</li>
+<li><strong>Two possible section 17(5) items:</strong> a club membership and a director's motor car, flagged for your
+  judgement.</li>
+</ul>
+<h2>Step 4: Check it like you'd check an article assistant's work</h2>
+<ul>
+<li>Re-add the totals in Excel yourself.</li>
+<li>Pick three exceptions and trace them back to both source files by hand.</li>
+<li>Read the script's matching rules. Change one tolerance and re-run to see the result move.</li>
+<li>Don't edit the output by hand. If something is wrong, fix the rule and re-run, so the working paper matches the
+  script.</li>
+</ul>
+<h2>What not to hand over</h2>
+<p>The AI flags; it does not decide. Whether a credit is blocked, whether to reverse ITC, and what to tell the
+client about a non-filing supplier are professional judgements. Treat any section number or rule the AI quotes
+from memory as a lead to check against the Act, not as an answer.</p>
+<h2>Try it on practice data first</h2>
+<p>Don't start on a live client. I've put together a practice set for this exact exercise: a made-up purchase
+register and GSTR-2B with fifteen planted traps, an answer key, and a test script that grades your output. It's
+free to download, along with 100+ prompts for CA work, at <strong>topmate.io/chandan_gupta31</strong> (look for the
+"AI for CAs: Bonus Pack").</p>
+<hr />
+<p><em>Chandan Gupta, CA, CIA, is the author of</em> AI for CAs: A practical guide to Claude Code for tax, audit, advisory
+and compliance work. <em>Chapter 14 of the book walks through this reconciliation end to end.
+topmate.io/chandan_gupta31</em></p>
+<p><em>Independent publication; not affiliated with or endorsed by Anthropic. Not professional advice.</em></p><h2>Go further</h2><p><a class="cta" href="https://topmate.io/chandan_gupta31">Get the PDF (₹499)</a>
+<a class="cta alt" href="https://www.scribd.com/document/1092184639/AI-for-CAs-Free-Sample-Claude-Code">Read the free sample</a>
+<a class="cta alt" href="https://topmate.io/chandan_gupta31">Free prompts + practice files</a></p>
+</main>
+<footer>© 2026 Chandan Gupta. <i>AI for CAs</i> is an independent publication, not affiliated with or
+endorsed by Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC. Nothing here is professional advice.
+Last updated 2026-11-01.</footer>
+</body></html>

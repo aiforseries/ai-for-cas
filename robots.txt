@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rekt-osbot.github.io/ai-for-cas-site/sitemap.xml

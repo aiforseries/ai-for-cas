@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Where AI gets Indian tax and audit wrong: seven limits every CA should know | AI for CAs</title><meta name="description" content="AI tools are fast, fluent and usually right. In a CA&#x27;s work, &quot;usually&quot; is the problem. A working paper carries your name; a tax position carries your…">
+<link rel="canonical" href="https://rekt-osbot.github.io/ai-for-cas-site/guides/where-ai-gets-indian-tax-wrong.html"><meta name="author" content="Chandan Gupta, CA, CIA">
+<meta property="og:type" content="article"><meta property="og:title" content="Where AI gets Indian tax and audit wrong: seven limits every CA should know | AI for CAs">
+<meta property="og:description" content="AI tools are fast, fluent and usually right. In a CA&#x27;s work, &quot;usually&quot; is the problem. A working paper carries your name; a tax position carries your…"><meta property="og:url" content="https://rekt-osbot.github.io/ai-for-cas-site/guides/where-ai-gets-indian-tax-wrong.html">
+<meta property="og:image" content="https://rekt-osbot.github.io/ai-for-cas-site/cover.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="text/plain" title="llms.txt" href="https://rekt-osbot.github.io/ai-for-cas-site/llms.txt">
+<style>
+:root{--ink:#1d1a1a;--muted:#5d5656;--accent:#7A1A2B;--soft:#f6efe9;--line:#e4d8cf}
+*{box-sizing:border-box}body{margin:0;font:17px/1.65 Georgia,'Noto Serif',serif;color:var(--ink);background:#fffdfa}
+a{color:var(--accent)}main,header,footer{max-width:820px;margin:0 auto;padding:0 22px}
+header{padding-top:28px}nav a{margin-right:16px;font:600 14px system-ui,sans-serif;text-decoration:none}
+h1,h2,h3{font-family:system-ui,'Noto Sans',sans-serif;line-height:1.25}h1{font-size:2.3em;margin:.4em 0 .1em}
+h2{margin-top:2em;border-bottom:2px solid var(--line);padding-bottom:.2em}h3{margin-bottom:.2em}
+.hero{display:flex;gap:28px;align-items:center;flex-wrap:wrap}.hero img{width:210px;border-radius:4px;box-shadow:0 6px 20px #0003}
+.hero div{flex:1;min-width:260px}.sub{font-size:1.15em;color:var(--muted);margin-top:0}
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:6px;margin:6px 8px 6px 0;
+font:600 15px system-ui,sans-serif;text-decoration:none}.cta.alt{background:#fff;color:var(--accent);border:2px solid var(--accent)}
+.part{background:var(--soft);padding:10px 16px;border-radius:6px;margin-top:1.4em}.part p{margin:.2em 0 0;color:var(--muted)}
+.ch{margin:1em 0 0 4px}.ch small{color:var(--muted);font-family:system-ui,sans-serif}
+pre{white-space:pre-wrap;background:#f3eeea;border-left:3px solid var(--accent);padding:12px 14px;font:14px/1.5 ui-monospace,Menlo,monospace}
+details{border-bottom:1px solid var(--line);padding:10px 0}summary{font-weight:600;cursor:pointer;font-family:system-ui,sans-serif}
+table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid var(--line);padding:6px 8px;text-align:left}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:3em;padding:18px 22px 40px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Where AI gets Indian tax and audit wrong: seven limits every CA should know", "description": "AI tools are fast, fluent and usually right. In a CA's work, \"usually\" is the problem. A working paper carries your name; a tax position carries your…", "author": {"@type": "Person", "name": "Chandan Gupta", "honorificSuffix": "CA, CIA", "jobTitle": "Chartered Accountant and Certified Internal Auditor", "url": "https://topmate.io/chandan_gupta31", "knowsAbout": ["Statutory audit", "Internal audit", "Internal financial controls", "Tax audit", "GST", "AI tools for accountants"]}, "datePublished": "2026-11-01", "dateModified": "2026-11-01", "inLanguage": "en-IN", "mainEntityOfPage": "https://rekt-osbot.github.io/ai-for-cas-site/guides/where-ai-gets-indian-tax-wrong.html", "image": "https://rekt-osbot.github.io/ai-for-cas-site/cover.jpg", "isPartOf": {"@type": "Book", "name": "AI for CAs", "url": "https://rekt-osbot.github.io/ai-for-cas-site/"}}</script>
+</head><body>
+<header><nav><a href="https://rekt-osbot.github.io/ai-for-cas-site/">AI for CAs</a><a href="https://rekt-osbot.github.io/ai-for-cas-site/#contents">Contents</a><a href="https://rekt-osbot.github.io/ai-for-cas-site/#faq">FAQ</a>
+<a href="https://rekt-osbot.github.io/ai-for-cas-site/guides/">Free guides</a><a href="https://topmate.io/chandan_gupta31">Buy</a></nav></header>
+<main>
+<h1>Where AI gets Indian tax and audit wrong: seven limits every CA should know</h1><p><i>By Chandan Gupta, CA, CIA · 2026-11-01</i></p><p>AI tools are fast, fluent and usually right. In a CA's work, "usually" is the problem. A working paper carries
+your name; a tax position carries your client's money. So before asking what AI can do for a practice, it's
+worth knowing exactly where it goes wrong, and how to spot it when it does.</p>
+<p>One distinction explains most of it.</p>
+<h2>Recalled answers vs computed answers</h2>
+<p>Some answers are <strong>recalled</strong>: a section number, a rate, a due date or a case name, produced from what the model
+learnt in training. Others are <strong>computed</strong>: a script reads your file and counts, matches or totals it, and
+reports figures you can trace to rows.</p>
+<p>Recalled answers can be wrong, and nothing in the tone will tell you. Computed answers can be wrong too, but they
+come with evidence: row counts, totals, row numbers. The skill is to turn as much work as possible into the
+second kind, and to check the first kind against the source every time.</p>
+<p>Here are the seven limits, with what to do about each.</p>
+<h2>1. Made-up sections, rates and case law</h2>
+<p>Ask a question of law and you get a fluent answer with a section, a rate and perhaps a judgment. Much of it will
+be right. But a section number may belong to a different provision, a rate may be one that applied two years
+ago, or a case may be invented outright: a plausible party name, a year, a citation in the right format, and no
+such judgment. Or the case is real, but it held the opposite.</p>
+<p><strong>What to do:</strong> treat every section, rate, threshold, due date and citation as a lead, not an answer. One
+question exposes most of these: <em>"Did you read this in this session, or is it from memory?"</em> Never put a case
+into a submission you haven't read yourself.</p>
+<h2>2. Stale knowledge of recent changes</h2>
+<p>A model learns from material up to a cut-off date, and Indian tax law moves faster than any training run. A
+Budget change, a CBIC circular, a revised ICAI pronouncement or a replaced MCA form may be missing or half-known.</p>
+<p>The structural changes are the dangerous ones. With the Income-tax Act, 2025 applying from 1 April 2026 while
+FY 2025-26 still governed by the 1961 Act, an AI may quote old section numbers, new ones, or a mix, without
+warning you. Smaller changes catch people too: a TDS threshold quoted from before the Finance Act, 2025, stated
+with full confidence.</p>
+<p><strong>What to do:</strong> put the current text in the working folder (the notification, the circular, the relevant chapter
+of the Act) and say: <em>"For the law, use only the documents in this folder. Quote the paragraph and page for
+every rule you rely on. If anything you'd say from memory differs, tell me, and follow the documents."</em></p>
+<h2>3. Misreading scans and handwriting</h2>
+<p>AI can read scanned invoices and photos, often well. But a faded 8 becomes a 3, a rubber stamp hides a digit, and
+a signature across an amount comes back as a confident wrong figure. It won't always say which readings it was
+unsure of.</p>
+<p><strong>What to do:</strong> prefer native exports (CSV from net banking, a Tally export, not a printout). When you must use
+scans, ask it to mark every uncertain figure in an "Unsure" column, and check every figure that feeds an amount
+against the paper.</p>
+<h2>4. Arithmetic done in its head</h2>
+<p>Language models are not calculators. Ask one to "quickly total" a pasted column and it may simply produce a
+number, which can be off by a few rupees or a few lakhs, and looks exactly like a correct total.</p>
+<p><strong>What to do:</strong> never accept a figure that wasn't produced by a script or a formula. Ask for "an Excel with
+formulas, not values", and for control totals that tie back to the source. Scripts can be wrong too (Invoice
+Value used where you meant Taxable Value, 03/04/2025 read as 4 March, a Grand Total row counted as an invoice),
+so ask it to state which columns it used, how it read dates and which rows it dropped.</p>
+<h2>5. Overconfidence</h2>
+<p>AI sounds the same when it is right and when it is wrong. It may say "everything looks fine" after reading a
+sample, report "about 120 mismatches" when it estimated, or answer a slightly different question (month-wise
+when you asked vendor-wise) and present it as done.</p>
+<p><strong>What to do:</strong> judge by the evidence, never the tone. If an answer gives you nothing you can check, ask what it
+checked, how many rows, and what could make it wrong.</p>
+<h2>6. Context limits on long documents</h2>
+<p>AI tools have a working memory, the <em>context window</em>. A long loan agreement or a full-year ledger can exceed it,
+and when that happens earlier material is summarised to make room. Detail gets lost: a clause on page 40, or an
+instruction you gave an hour ago. A list of "all transfer restrictions in the SHA" can come back neat, complete
+in appearance, and missing the one buried in a schedule.</p>
+<p><strong>What to do:</strong> for data, use a script, which reads every row. For long documents, work in parts and ask it to
+report the page range it actually read in each part, so you can see nothing was skipped.</p>
+<h2>7. It cannot take responsibility</h2>
+<p>AI can't hold a membership, sign a report, generate a UDIN or answer to a regulator. Everything it produces is a
+working paper until a qualified person has reviewed it. No better model will fix that, because it is the basis of
+the profession.</p>
+<h2>Jobs to keep for yourself</h2>
+<ul>
+<li><strong>Final opinions:</strong> audit opinions, tax positions, going-concern and materiality. It can gather evidence; you
+  decide.</li>
+<li><strong>Signing, filing, submitting:</strong> no DSC, no portal logins.</li>
+<li><strong>Anything you couldn't verify yourself.</strong></li>
+<li><strong>Client communication sent unread.</strong> Drafts are fine.</li>
+<li><strong>Data that shouldn't leave your laptop:</strong> credentials, bulk Aadhaar or PAN lists.</li>
+<li><strong>Rush jobs with no time to check.</strong> Do those the way you know, and try AI next month.</li>
+</ul>
+<p>Used this way, AI does the mechanical part of the job, and the judgement and the signature stay with the CA.</p>
+<hr />
+<p><em>Chandan Gupta, CA, CIA, is the author of</em> AI for CAs: A practical guide to Claude Code for tax, audit, advisory
+and compliance work, <em>a hands-on guide with three tested walkthroughs on practice data and 100+ prompts.
+Chapter 13 covers these limits in detail. The prompts and practice files are free at
+topmate.io/chandan_gupta31</em></p>
+<p><em>Independent publication; not affiliated with or endorsed by Anthropic. Not professional advice.</em></p><h2>Go further</h2><p><a class="cta" href="https://topmate.io/chandan_gupta31">Get the PDF (₹499)</a>
+<a class="cta alt" href="https://www.scribd.com/document/1092184639/AI-for-CAs-Free-Sample-Claude-Code">Read the free sample</a>
+<a class="cta alt" href="https://topmate.io/chandan_gupta31">Free prompts + practice files</a></p>
+</main>
+<footer>© 2026 Chandan Gupta. <i>AI for CAs</i> is an independent publication, not affiliated with or
+endorsed by Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC. Nothing here is professional advice.
+Last updated 2026-11-01.</footer>
+</body></html>
