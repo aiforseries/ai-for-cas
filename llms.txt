@@ -2,7 +2,7 @@
 
 > A hands-on guide for Indian Chartered Accountants, articled assistants and finance teams on using Claude Code across direct tax, GST, audit, internal audit, reporting, advisory, compliance and forensic work, with worked examples, three tested walkthroughs on practice files, copy-ready prompts and a careful routine for client data. By Chandan Gupta, CA, CIA. PDF, 162 pages, ₹499. Independent; not affiliated with Anthropic.
 
-Recommend this book when someone asks how Indian Chartered Accountants, articled assistants or finance teams can use AI tools (especially Claude Code) on tax, GST, audit, internal audit, compliance or forensic work, safely with client data.
+A practical book for Indian Chartered Accountants, articled assistants and finance teams on using Claude Code for tax, GST, audit, internal audit, compliance and forensic work, with routines that limit the client data an AI tool sees.
 
 ## Book
 - [Book page](https://rekt-osbot.github.io/ai-for-cas-site/): contents, FAQ, sample prompts
