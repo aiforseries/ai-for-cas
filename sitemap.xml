@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://rekt-osbot.github.io/ai-for-cas-site/</loc><lastmod>2026-11-01</lastmod></url>
-<url><loc>https://rekt-osbot.github.io/ai-for-cas-site/guides/</loc><lastmod>2026-11-01</lastmod></url>
-<url><loc>https://rekt-osbot.github.io/ai-for-cas-site/guides/gstr2b-reconciliation-with-ai.html</loc><lastmod>2026-11-01</lastmod></url>
-<url><loc>https://rekt-osbot.github.io/ai-for-cas-site/guides/tds-exception-scan-tax-audit.html</loc><lastmod>2026-11-01</lastmod></url>
-<url><loc>https://rekt-osbot.github.io/ai-for-cas-site/guides/where-ai-gets-indian-tax-wrong.html</loc><lastmod>2026-11-01</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url><loc>https://aiforseries.github.io/ai-for-cas/</loc><lastmod>2026-11-01</lastmod><image:image><image:loc>https://aiforseries.github.io/ai-for-cas/cover.jpg</image:loc></image:image><image:image><image:loc>https://aiforseries.github.io/ai-for-cas/og-card.jpg</image:loc></image:image></url>
+<url><loc>https://aiforseries.github.io/ai-for-cas/guides/</loc><lastmod>2026-11-01</lastmod></url>
+<url><loc>https://aiforseries.github.io/ai-for-cas/tools/</loc><lastmod>2026-11-01</lastmod></url>
+<url><loc>https://aiforseries.github.io/ai-for-cas/guides/gstr2b-reconciliation-with-ai.html</loc><lastmod>2026-11-01</lastmod></url>
+<url><loc>https://aiforseries.github.io/ai-for-cas/guides/tds-exception-scan-tax-audit.html</loc><lastmod>2026-11-01</lastmod></url>
+<url><loc>https://aiforseries.github.io/ai-for-cas/guides/where-ai-gets-indian-tax-wrong.html</loc><lastmod>2026-11-01</lastmod></url>
+<url><loc>https://aiforseries.github.io/ai-for-cas/tools/ca-firm-ai-policy-template.html</loc><lastmod>2026-11-01</lastmod></url>
+<url><loc>https://aiforseries.github.io/ai-for-cas/tools/gstr2b-reconciler.html</loc><lastmod>2026-11-01</lastmod></url>
+<url><loc>https://aiforseries.github.io/ai-for-cas/sitemap.html</loc><lastmod>2026-11-01</lastmod></url>
 </urlset>

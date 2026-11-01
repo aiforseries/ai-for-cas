@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'"><title>Free GSTR-2B Reconciliation Tool (Runs in Your Browser) | AI for CAs</title><meta name="description" content="Reconcile GSTR-2B with your purchase register free, in your browser: nothing is uploaded. Matches on GSTIN and invoice number, ties control totals and builds the ITC bridge.">
+<link rel="canonical" href="https://aiforseries.github.io/ai-for-cas/tools/gstr2b-reconciler.html"><meta name="author" content="Chandan Gupta, CA, CIA">
+<meta property="og:type" content="website"><meta property="og:title" content="Free GSTR-2B Reconciliation Tool (Runs in Your Browser) | AI for CAs">
+<meta property="og:description" content="Reconcile GSTR-2B with your purchase register free, in your browser: nothing is uploaded. Matches on GSTIN and invoice number, ties control totals and builds the ITC bridge."><meta property="og:url" content="https://aiforseries.github.io/ai-for-cas/tools/gstr2b-reconciler.html">
+<meta property="og:site_name" content="AI for CAs"><meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://aiforseries.github.io/ai-for-cas/og-card.jpg"><meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630"><meta property="og:image:alt" content="AI for CAs by Chandan Gupta: book cover and title">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Free GSTR-2B Reconciliation Tool (Runs in Your Browser) | AI for CAs">
+<meta name="twitter:description" content="Reconcile GSTR-2B with your purchase register free, in your browser: nothing is uploaded. Matches on GSTIN and invoice number, ties control totals and builds the ITC bridge."><meta name="twitter:image" content="https://aiforseries.github.io/ai-for-cas/og-card.jpg">
+<link rel="alternate" type="text/plain" title="llms.txt" href="https://aiforseries.github.io/ai-for-cas/llms.txt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' width='30' height='30' aria-hidden='true'%3E%3Crect width='40' height='40' rx='9' fill='%237A1A2B'/%3E%3Ctext x='20' y='24' text-anchor='middle' font-family='system-ui,-apple-system,Segoe UI,sans-serif' font-size='17' font-weight='800' fill='%23fff'%3EAI%3C/text%3E%3Crect x='9' y='28.5' width='22' height='2.2' rx='1' fill='%23e9b949'/%3E%3Crect x='9' y='32.2' width='22' height='2.2' rx='1' fill='%23e9b949'/%3E%3C/svg%3E">
+<style>
+:root{--ink:#1d1a1a;--muted:#5f5757;--accent:#7A1A2B;--accent2:#5e1220;--gold:#e9b949;--soft:#f7f1ec;--line:#e6dbd2;
+--bg:#fffdfa;--good:#1d6b35;--bad:#a3141f;--sans:system-ui,-apple-system,'Segoe UI','Noto Sans',sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:17px/1.7 Georgia,'Noto Serif',serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:2px}a:hover{color:var(--accent2)}
+img{max-width:100%;height:auto}
+.wrap,main{max-width:1000px;margin:0 auto;padding:0 22px}
+main.article{max-width:760px}
+.top{position:sticky;top:0;z-index:20;background:rgba(255,253,250,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;min-height:58px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font:800 17px var(--sans);color:var(--ink);text-decoration:none;letter-spacing:-.2px;margin-right:auto}
+.brand:hover{color:var(--accent)}.brand .mark{flex:none;border-radius:9px}
+.kicker-top{font:700 13px var(--sans);text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin:0 0 6px}
+.steps3{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;list-style:none;padding:0;margin:1.2em 0}
+.steps3 li{counter-increment:s;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px 14px;position:relative}
+.steps3 li::before{content:counter(s);position:absolute;top:-12px;left:16px;width:26px;height:26px;border-radius:50%;background:var(--accent);
+color:#fff;font:700 14px/26px var(--sans);text-align:center}.steps3 h3{margin:.3em 0 .2em}.steps3 p{margin:0;font-size:15px;color:var(--muted);line-height:1.55}
+.pwrap{position:relative}.copy{position:absolute;top:8px;right:8px;font:600 12px var(--sans);background:#fff;border:1px solid var(--line);
+border-radius:6px;padding:4px 10px;cursor:pointer;color:var(--accent)}.copy:hover{border-color:var(--accent)}
+.soon{display:inline-block;font:700 11px var(--sans);text-transform:uppercase;letter-spacing:.6px;background:var(--soft);color:var(--muted);
+border-radius:99px;padding:2px 9px;margin-top:10px}
+.top nav{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.top nav a{font:600 14px var(--sans);text-decoration:none;color:var(--ink);padding:6px 10px;border-radius:6px}
+.top nav a:hover{background:var(--soft);color:var(--accent)}
+.top nav a.buy{background:var(--accent);color:#fff}.top nav a.buy:hover{background:var(--accent2);color:#fff}
+h1,h2,h3{font-family:var(--sans);line-height:1.22;letter-spacing:-.3px}h1{font-size:2.4em;margin:.5em 0 .2em}
+h2{font-size:1.55em;margin-top:2.2em}h3{font-size:1.12em;margin-bottom:.3em}
+main.article h2{border-bottom:2px solid var(--line);padding-bottom:.25em}
+.hero{background:linear-gradient(135deg,#7A1A2B 0%,#4d0f1b 100%);color:#fff;margin-bottom:1.5em}
+.hero .wrap{display:flex;gap:44px;align-items:center;flex-wrap:wrap;padding-top:46px;padding-bottom:50px}
+.hero img{width:230px;border-radius:6px;box-shadow:0 18px 40px #0007;transform:rotate(-2deg)}
+.hero .txt{flex:1;min-width:280px}.hero h1{color:#fff;font-size:3em;margin:0}.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .sub{font-size:1.2em;color:#f3e3e6;margin:.4em 0 .8em}.hero .by{font:15px var(--sans);color:#ecd6da}
+.hero .cta{background:var(--gold);color:#2a1408}.hero .cta:hover{background:#f3c95f;color:#2a1408}
+.hero .cta.alt{background:transparent;color:#fff;border-color:#ffffffaa}.hero .cta.alt:hover{background:#ffffff1a}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.pills li{font:600 13px var(--sans);background:#ffffff1f;border:1px solid #ffffff33;border-radius:99px;padding:4px 12px}
+.sub{font-size:1.15em;color:var(--muted);margin-top:0}
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:11px 20px;border-radius:8px;margin:6px 8px 6px 0;
+font:700 15px var(--sans);text-decoration:none;border:2px solid transparent;transition:background .15s,transform .15s}
+.cta:hover{background:var(--accent2);color:#fff;transform:translateY(-1px)}
+.cta.alt{background:#fff;color:var(--accent);border-color:var(--accent)}.cta.alt:hover{background:var(--soft)}
+button.cta{cursor:pointer}button.cta:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.feat{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))!important}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;margin:1.2em 0;padding:0;list-style:none}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:0 1px 2px #0000000a}
+a.card{display:block;text-decoration:none;color:var(--ink);transition:border-color .15s,box-shadow .15s,transform .15s}
+a.card:hover{border-color:var(--accent);box-shadow:0 8px 24px #7a1a2b1f;transform:translateY(-2px)}
+.card h3{margin:.1em 0 .35em;color:var(--accent)}.card p{margin:0;font-size:15px;line-height:1.55;color:var(--muted)}
+.card .more{display:inline-block;margin-top:10px;font:700 14px var(--sans);color:var(--accent)}
+.card .kicker{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.6px;color:var(--gold);filter:brightness(.8)}
+.part{background:var(--soft);padding:12px 18px;border-radius:10px;margin-top:1.6em;border-left:4px solid var(--accent)}
+.part h3{margin:0}.part p{margin:.2em 0 0;color:var(--muted);font-size:15px}
+.ch{margin:1em 0 0 6px;padding-left:12px;border-left:2px solid var(--line)}.ch h3{font-size:1.02em}
+.ch p{margin:.2em 0}.ch small{color:var(--muted);font:13px/1.5 var(--sans)}
+pre{white-space:pre-wrap;background:#f4eee9;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 14px;
+font:14px/1.55 ui-monospace,Menlo,Consolas,monospace}
+code{font:.88em ui-monospace,Menlo,Consolas,monospace;background:#f4eee9;padding:1px 5px;border-radius:4px}
+blockquote{margin:1em 0;padding:12px 18px;background:var(--soft);border-left:4px solid var(--gold);border-radius:0 8px 8px 0}
+details{border-bottom:1px solid var(--line);padding:12px 0}summary{font:600 16px var(--sans);cursor:pointer}
+summary::marker{color:var(--accent)}details p{margin:.5em 0 0}
+table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--soft);font-family:var(--sans);font-size:.92em}
+main table{display:block;overflow-x:auto}
+.crumbs{font:14px var(--sans);color:var(--muted);margin-top:18px}.crumbs a{text-decoration:none}
+.meta{font:14px var(--sans);color:var(--muted)}
+.callout{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:1.6em 0}
+.author{display:flex;gap:18px;align-items:flex-start}.author .mono{flex:none;width:56px;height:56px;border-radius:50%;
+background:var(--accent);color:#fff;display:grid;place-items:center;font:800 20px var(--sans)}
+.skip{position:absolute;left:-999px;top:8px;z-index:50;background:var(--accent);color:#fff;padding:8px 14px;border-radius:6px;font:700 14px var(--sans)}
+.skip:focus{left:12px}
+.top nav a.on{color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent);border-radius:0}
+.toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin:1.4em 0;font:15px/1.5 var(--sans)}
+.toc b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:4px}
+.toc ol{margin:0;padding-left:1.3em}.toc li{margin:2px 0}.toc a{text-decoration:none}.toc a:hover{text-decoration:underline}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:2em 0}.pn a{display:block;border:1px solid var(--line);border-radius:10px;
+padding:10px 14px;text-decoration:none;font:600 15px/1.4 var(--sans);background:#fff}.pn a:hover{border-color:var(--accent)}
+.pn small{display:block;color:var(--muted);font-weight:400;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+.pn .next{text-align:right;grid-column:2}
+.related{list-style:none;padding:0;margin:.6em 0;display:grid;gap:8px}.related li{font:15px var(--sans)}
+.related a{font-weight:600}.related small{color:var(--muted)}
+.smap h2{font-size:1.2em}.smap ul{columns:2 280px;column-gap:28px;font:15px/1.6 var(--sans)}.smap li{break-inside:avoid;margin-bottom:4px}
+footer .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:22px 28px;margin-bottom:22px}
+footer h4{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.7px;color:#fff;margin:0 0 8px}
+footer ul{list-style:none;padding:0;margin:0}footer li{margin:5px 0}footer .grid a{text-decoration:none;color:#e9dfe0;font-weight:500}
+footer .grid a:hover{color:#fff;text-decoration:underline}footer .legal{border-top:1px solid #ffffff1f;padding-top:14px}
+footer{background:#2a1d1f;color:#d9cdcf;margin-top:4em;font:14px/1.6 var(--sans)}
+footer .wrap{padding-top:30px;padding-bottom:40px}footer a{color:#fff}
+footer .cols{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:16px}footer .cols a{text-decoration:none;font-weight:600}
+footer p{margin:.4em 0;color:#bfb1b3}
+@media (max-width:640px){body{font-size:16px}h1{font-size:1.9em}.hero h1{font-size:2.3em}.hero .wrap{padding-top:28px;gap:26px}
+.hero img{width:150px}.top .wrap{padding-top:6px;padding-bottom:6px}.top nav a{padding:5px 7px;font-size:13px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Free GSTR-2B Reconciliation Tool (Runs in Your Browser)", "description": "Reconcile GSTR-2B with your purchase register free, in your browser: nothing is uploaded. Matches on GSTIN and invoice number, ties control totals and builds the ITC bridge.", "url": "https://aiforseries.github.io/ai-for-cas/tools/gstr2b-reconciler.html", "applicationCategory": "FinanceApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "A current Chrome, Edge, Firefox or Safari", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "author": {"@type": "Person", "@id": "https://aiforseries.github.io/ai-for-cas/#author", "name": "Chandan Gupta", "honorificSuffix": "CA, CIA", "jobTitle": "Chartered Accountant and Certified Internal Auditor", "url": "https://aiforseries.github.io/ai-for-cas/#author", "sameAs": ["https://www.linkedin.com/in/chandan-gupta-b8a108192/", "https://topmate.io/chandan_gupta31"], "knowsAbout": ["Statutory audit", "Internal audit", "Internal financial controls", "Tax audit", "GST", "AI tools for accountants"]}, "datePublished": "2026-11-01", "inLanguage": "en-IN", "isAccessibleForFree": true}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "AI for CAs", "item": "https://aiforseries.github.io/ai-for-cas/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://aiforseries.github.io/ai-for-cas/tools/"}, {"@type": "ListItem", "position": 3, "name": "Free GSTR-2B Reconciliation Tool (Runs in Your Browser)", "item": "https://aiforseries.github.io/ai-for-cas/tools/gstr2b-reconciler.html"}]}</script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap"><a class="brand" href="https://aiforseries.github.io/"><svg class="mark" viewBox="0 0 40 40" width="30" height="30" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#7A1A2B"/><text x="20" y="24" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="17" font-weight="800" fill="#fff">AI</text><rect x="9" y="28.5" width="22" height="2.2" rx="1" fill="#e9b949"/><rect x="9" y="32.2" width="22" height="2.2" rx="1" fill="#e9b949"/></svg><span>The AI For Series</span></a>
+<nav aria-label="Main"><a href="https://aiforseries.github.io/ai-for-cas/">AI for CAs</a><a href="https://aiforseries.github.io/ai-for-cas/#contents">Contents</a><a href="https://aiforseries.github.io/ai-for-cas/guides/">Guides</a>
+<a href="https://aiforseries.github.io/ai-for-cas/tools/" class="on" aria-current="page">Tools</a><a href="https://aiforseries.github.io/ai-for-cas/#faq">FAQ</a><a class="buy" href="https://topmate.io/chandan_gupta31">Get the book</a></nav></div></header>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="https://aiforseries.github.io/ai-for-cas/">AI for CAs</a> › <a href="https://aiforseries.github.io/ai-for-cas/tools/">Free tools</a> › Free GSTR-2B Reconciliation Tool (Runs in Your Browser)</nav><h1>Free GSTR-2B Reconciliation Tool</h1><p class="meta">By Chandan Gupta, CA, CIA · 2026-11-01</p>
+<p class="sub">Match your GSTR-2B against your purchase register in a minute, and get the exceptions, the
+ITC bridge and an Excel working paper.</p>
+<ul class="trust"><li><b>Nothing is uploaded.</b> Your files are read by this browser tab only.</li>
+<li><b>Works offline.</b> Once the page has loaded, switch off the internet: it still works.</li>
+<li><b>Free.</b> No sign-up, no limits.</li></ul>
+<style>
+.trust{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:1.2em 0;list-style:none}
+.trust li{flex:1;min-width:220px;background:#eef6f0;border:1px solid #cfe5d6;border-radius:10px;padding:10px 14px;font:14px/1.45 var(--sans);color:#24402d}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:1.4em 0 .6em}
+.drop{position:relative;display:block;background:#fff;border:2px dashed #d4c3b8;border-radius:14px;padding:18px 20px 16px;transition:border-color .15s,background .15s}
+.drop:hover,.drop.over{border-color:var(--accent);background:#fdf6f6}.drop.done{border-style:solid;border-color:#9cc9a9;background:#f6fbf7}
+.drop input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.drop .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font:700 14px var(--sans);margin-right:8px}
+.drop.done .n{background:var(--good)}
+.drop h3{display:flex;align-items:center;margin:0 0 .3em;font-size:1.05em}
+.drop p{margin:.2em 0;font:14px/1.5 var(--sans);color:var(--muted)}.drop .pick{font:700 14px var(--sans);color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;position:relative;z-index:2}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:3px 4px 3px 12px;font:13px var(--sans)}
+.chip .fname{max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}.chip small{color:var(--muted)}
+.chip .x{border:0;background:#0000000d;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:15px;line-height:1}
+.chip .x:hover{background:var(--accent);color:#fff}
+.runbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin:.4em 0}
+.runbar label{font:600 14px var(--sans)}.runbar input{width:84px;font:15px var(--sans);padding:7px 8px;border:1px solid var(--line);border-radius:8px}
+.linkbtn{background:none;border:0;color:var(--muted);font:600 14px var(--sans);cursor:pointer;text-decoration:underline}
+#status{font:600 15px var(--sans);margin:.6em 0;min-height:1.4em;display:flex;align-items:center;gap:8px}
+#status.ok{color:var(--good)}#status.err{color:var(--bad)}#status.busy{color:var(--muted)}
+.spin{width:16px;height:16px;border:2px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:sp 0.8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.warn{background:#fff4e0;border-left:3px solid #c77700;padding:8px 12px;border-radius:0 8px 8px 0;font:14px var(--sans)}
+.note{color:var(--muted);font:14px/1.5 var(--sans)}
+details.card{padding:12px 18px;margin:1em 0}details.card summary{font-size:15px}
+.mapgrid{display:grid;grid-template-columns:max-content minmax(0,340px);gap:6px 14px;align-items:center;font:14px var(--sans);margin-top:8px}
+.mapgrid select{font:14px var(--sans);padding:5px 6px;border:1px solid var(--line);border-radius:6px;background:#fff}.req{color:var(--bad)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:.4em 0 1em}
+.badge{font:700 13px var(--sans);border-radius:99px;padding:4px 12px;background:var(--soft);border:1px solid var(--line)}
+.badge.good{background:#e9f5ec;border-color:#b9dcc3;color:var(--good)}.badge.bad{background:#fbe9ea;border-color:#efb9bd;color:var(--bad)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin:1em 0}
+.tile{display:block;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font:13px/1.35 var(--sans);transition:transform .15s,box-shadow .15s}
+.tile:hover{transform:translateY(-2px);box-shadow:0 6px 18px #0000001a;color:var(--ink)}
+.tile b{display:block;font-size:26px;letter-spacing:-.5px}.tile small{display:block;color:var(--muted);margin-top:3px}
+.tile.hot{border-color:var(--accent);background:#fbf0f1}.tile.hot b{color:var(--accent)}.tile.zero{opacity:.6}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;top:58px;z-index:5;background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.actions input{flex:1;min-width:220px;font:15px var(--sans);padding:10px 12px;border:1px solid var(--line);border-radius:8px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+table.grid{display:table;font:14px var(--sans)}table.grid td.n,table.grid th.n{text-align:right;white-space:nowrap}
+table.bridge tr.strong td{font-weight:700;background:var(--soft)}
+details.sec{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 16px;margin:12px 0}
+details.sec summary{display:flex;align-items:center;gap:10px}
+details.sec .count{margin-left:auto;font:700 13px var(--sans);background:var(--soft);border-radius:99px;padding:2px 10px}
+.todo{font:14px/1.5 var(--sans);color:#4a3f40;background:#fbf7f3;border-radius:8px;padding:8px 12px}
+.scroll{overflow:auto;max-height:460px;border:1px solid var(--line);border-radius:8px}
+table.list{display:table;font:13px/1.4 var(--sans);border:0}table.list th{position:sticky;top:0;z-index:1;white-space:nowrap}
+table.list td,table.list th{border-width:0 0 1px 0;white-space:nowrap}table.list tbody tr:nth-child(even){background:#fcf9f6}
+table.list tbody tr:hover{background:#f6ecea}td.n,th.n{text-align:right;white-space:nowrap}td.neg{color:var(--bad)}
+td.why{color:var(--accent);font-weight:600}
+</style>
+<div class="steps">
+<label class="drop" id="booksZone"><input type="file" id="booksFile" accept=".xlsx,.csv,.txt">
+<h3><span class="n">1</span>Purchase register</h3>
+<p>Excel (.xlsx) or CSV, e.g. a Tally or ERP export. Needs supplier GSTIN, invoice number, taxable value and
+IGST, CGST, SGST columns. Credit notes negative, or marked "Credit Note".</p>
+<p class="pick">Choose a file or drop it here</p><div class="chips" id="booksChips"></div></label>
+<label class="drop" id="g2bZone"><input type="file" id="g2bFiles" accept=".xlsx,.json,.zip,.csv" multiple>
+<h3><span class="n">2</span>GSTR-2B from the GST portal</h3>
+<p>The Excel (.xlsx) or JSON (.json, or the .zip it comes in). Add one file per month for a quarter or a year.
+B2B and credit/debit notes are used; amendments are listed for separate review.</p>
+<p class="pick">Choose files or drop them here</p><div class="chips" id="g2bChips"></div></label>
+</div>
+<div class="runbar"><button type="button" id="runBtn" class="cta" disabled>Reconcile</button>
+<label for="tol">Tolerance per amount ₹</label><input type="number" id="tol" value="1" min="0" step="0.5">
+<button type="button" id="resetBtn" class="linkbtn">Start over</button></div>
+<div id="status" role="status" aria-live="polite"></div>
+<div id="mapping"></div>
+<div id="results"></div>
+
+<h2>How it matches</h2>
+<ol>
+<li><b>Possible duplicates first.</b> The same supplier GSTIN, document type and invoice number twice in the
+books: the first is kept, the rest are listed as possible duplicates.</li>
+<li><b>GSTIN and invoice number exactly as written.</b></li>
+<li><b>GSTIN and cleaned invoice number.</b> The financial year, prefixes, slashes and leading zeros are removed,
+so <code>INV-412</code> matches <code>INV/0412</code>, and <code>DW-88</code> matches <code>DW/0088/25-26</code>.
+The GSTIN must agree, so invoice 1047 from two suppliers is never cross-matched.</li>
+<li><b>Cleaned number and value, but a different GSTIN</b>, with dates within 7 days. These are almost always a
+GSTIN typo in the vendor master and are shown as mismatched, not matched.</li>
+</ol>
+<p>Each pair is then compared column by column: within the tolerance it is matched; beyond it, it is a
+mismatch with the reason. Separately, it flags GSTINs that fail the check digit, ledger heads that suggest
+<b>blocked credit under section 17(5)</b> (motor car, club, food, gifts, insurance and so on) and rows where
+the 2B says ITC is not available.</p>
+<p>Every books row and every 2B row ends up in exactly one list, and the summary proves it: row counts and
+totals tie back to both files, and an <b>ITC bridge</b> walks from ITC as per books to ITC as per GSTR-2B.</p>
+
+<h2>What it does not do</h2>
+<ul>
+<li>It doesn't decide eligibility. A clean match is not proof that ITC is available: check section 16
+conditions (invoice in hand, goods received, payment within 180 days), section 17(5), and the time limit in
+section 16(4).</li>
+<li>It doesn't read amendment sheets, import of goods (IMPG) or ISD credits.</li>
+<li>It is a working aid, not a filing tool. Review the result as you would a junior's working paper.</li>
+</ul>
+
+<h2>Try it on practice data first</h2>
+<p>The free <a href="https://topmate.io/chandan_gupta31">AI for CAs Bonus Pack</a> includes a practice purchase register and GSTR-2B for a
+made-up company with 15 planted traps, and an answer key. This tool gets every one of them: 348 matched, 3 within
+tolerance, 5 mismatched, 1 in books only, 2 in 2B only, 1 duplicate and 5 flags, with both files tied out.
+The <a href="https://aiforseries.github.io/ai-for-cas/guides/gstr2b-reconciliation-with-ai.html">GSTR-2B reconciliation guide</a> explains the
+method, and Chapter 14 of the book shows how to have an AI write the same reconciliation as a script you
+own and can change.</p>
+<script src="gstr2b-engine.js"></script>
+<script src="gstr2b-ui.js"></script>
+<h2>Related</h2><ul class="related"><li><small>Free guide</small><br><a href="https://aiforseries.github.io/ai-for-cas/guides/gstr2b-reconciliation-with-ai.html">GSTR-2B vs Purchase Register Reconciliation with AI</a>: Reconcile GSTR-2B with the purchase register using an AI-written script that runs on your laptop: matching rules, control totals and how a CA checks it.</li><li><small>Free tool</small><br><a href="https://aiforseries.github.io/ai-for-cas/tools/ca-firm-ai-policy-template.html">AI Use Policy Template for CA Firms in India</a>: A free AI use policy template for Indian CA firms: what client data may be shared, consent, review, documentation, an engagement letter clause and an acknowledgement form.</li></ul><div class="callout"><h3 style="margin-top:0">Go further</h3><p><a class="cta" href="https://topmate.io/chandan_gupta31">Get the PDF (₹499)</a>
+<a class="cta alt" href="https://www.scribd.com/document/1092378284/AI-for-CAs-Free-Sample-Claude-Code">Read the free sample</a>
+<a class="cta alt" href="https://topmate.io/chandan_gupta31">Free prompts + practice files</a></p></div>
+</main>
+<footer><div class="wrap"><nav class="grid" aria-label="Footer"><div><h4>The book</h4><ul><li><a href="https://aiforseries.github.io/ai-for-cas/">About the book</a></li><li><a href="https://aiforseries.github.io/ai-for-cas/#contents">Contents</a></li><li><a href="https://aiforseries.github.io/ai-for-cas/#prompts">Sample prompts</a></li><li><a href="https://aiforseries.github.io/ai-for-cas/#faq">FAQ</a></li><li><a href="https://aiforseries.github.io/ai-for-cas/#author">About the author</a></li><li><a href="https://www.scribd.com/document/1092378284/AI-for-CAs-Free-Sample-Claude-Code">Free 20-page sample</a></li><li><a href="https://topmate.io/chandan_gupta31">Buy the PDF (₹499)</a></li></ul></div><div><h4>Free guides</h4><ul><li><a href="https://aiforseries.github.io/ai-for-cas/guides/">All guides</a></li><li><a href="https://aiforseries.github.io/ai-for-cas/guides/gstr2b-reconciliation-with-ai.html">GSTR-2B vs Purchase Register Reconciliation with AI</a></li><li><a href="https://aiforseries.github.io/ai-for-cas/guides/tds-exception-scan-tax-audit.html">TDS Exception Scan for Tax Audit (Form 3CD) with AI</a></li><li><a href="https://aiforseries.github.io/ai-for-cas/guides/where-ai-gets-indian-tax-wrong.html">Where AI Gets Indian Tax and Audit Wrong: 7 Limits</a></li></ul></div><div><h4>Free tools</h4><ul><li><a href="https://aiforseries.github.io/ai-for-cas/tools/">All tools</a></li><li><a href="https://aiforseries.github.io/ai-for-cas/tools/gstr2b-reconciler.html">GSTR-2B reconciler</a></li><li><a href="https://aiforseries.github.io/ai-for-cas/tools/ca-firm-ai-policy-template.html">AI policy template for CA firms</a></li></ul></div><div><h4>More</h4><ul><li><a href="https://aiforseries.github.io/ai-for-cas/sitemap.html">Site map</a></li><li><a href="https://aiforseries.github.io/ai-for-cas/sitemap.xml">XML sitemap</a></li><li><a href="https://aiforseries.github.io/ai-for-cas/llms.txt">llms.txt</a></li><li><a href="https://topmate.io/chandan_gupta31">Free bonus pack (prompts + practice files)</a></li></ul></div></nav>
+<p class="legal">© 2026 The AI For Series. <i>AI for CAs</i> is written by Chandan Gupta, CA, CIA. It is an independent publication, not affiliated with or
+endorsed by Anthropic or ICAI. Claude and Claude Code are trademarks of Anthropic, PBC. Nothing here is
+professional advice. Last updated <span data-lastmod>2026-11-01</span>.</p></div></footer>
+</body></html>

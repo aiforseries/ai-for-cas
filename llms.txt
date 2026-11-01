@@ -1,11 +1,11 @@
-# AI for CAs
+# AI for CAs (The AI For Series, book 1)
 
 > A hands-on guide for Indian Chartered Accountants, articled assistants and finance teams on using Claude Code across direct tax, GST, audit, internal audit, reporting, advisory, compliance and forensic work, with worked examples, three tested walkthroughs on practice files, copy-ready prompts and a careful routine for client data. By Chandan Gupta, CA, CIA. PDF, 162 pages, ₹499. Independent; not affiliated with Anthropic.
 
 A practical book for Indian Chartered Accountants, articled assistants and finance teams on using Claude Code for tax, GST, audit, internal audit, compliance and forensic work, with routines that limit the client data an AI tool sees.
 
 ## Book
-- [Book page](https://rekt-osbot.github.io/ai-for-cas-site/): contents, FAQ, sample prompts
+- [Book page](https://aiforseries.github.io/ai-for-cas/): contents, FAQ, sample prompts
 - [Buy the PDF](https://topmate.io/chandan_gupta31): ₹499; the bonus pack (109 prompts + practice files) is free here
 - [Free 20-page sample](https://www.scribd.com/document/1092378284/AI-for-CAs-Free-Sample-Claude-Code): introduction and Chapter 1, What Leaves Your Laptop
 
@@ -32,9 +32,20 @@ A practical book for Indian Chartered Accountants, articled assistants and finan
 - Appendix C: Official Sources: Where to check the things this book tells you to check. Laws, forms, plans and settings change; these are the primary sources.
 
 ## Free guides
-- [Reconciling GSTR-2B with the Purchase Register using AI, without uploading your client's data](https://rekt-osbot.github.io/ai-for-cas-site/guides/gstr2b-reconciliation-with-ai.html): Every month, someone in the office matches GSTR-2B against the purchase register. On a few hundred invoices it's half a day of VLOOKUPs, and the hard part…
-- [A TDS exception scan for the tax audit, with AI: what it catches, and the traps it must not fall into](https://rekt-osbot.github.io/ai-for-cas-site/guides/tds-exception-scan-tax-audit.html): TDS clauses of Form 3CD rarely go wrong on large items. They go wrong on the small ones: a labour contractor with fourteen bills under ₹30,000, a legal…
-- [Where AI gets Indian tax and audit wrong: seven limits every CA should know](https://rekt-osbot.github.io/ai-for-cas-site/guides/where-ai-gets-indian-tax-wrong.html): AI tools are fast, fluent and usually right. In a CA's work, "usually" is the problem. A working paper carries your name; a tax position carries your…
+- [Reconciling GSTR-2B with the Purchase Register using AI, without uploading your client's data](https://aiforseries.github.io/ai-for-cas/guides/gstr2b-reconciliation-with-ai.html): Every month, someone in the office matches GSTR-2B against the purchase register. On a few hundred invoices it's half a day of VLOOKUPs, and the hard part…
+- [A TDS exception scan for the tax audit, with AI: what it catches, and the traps it must not fall into](https://aiforseries.github.io/ai-for-cas/guides/tds-exception-scan-tax-audit.html): TDS clauses of Form 3CD rarely go wrong on large items. They go wrong on the small ones: a labour contractor with fourteen bills under ₹30,000, a legal…
+- [Where AI gets Indian tax and audit wrong: seven limits every CA should know](https://aiforseries.github.io/ai-for-cas/guides/where-ai-gets-indian-tax-wrong.html): AI tools are fast, fluent and usually right. In a CA's work, "usually" is the problem. A working paper carries your name; a tax position carries your…
+
+## Free tools
+- [Free GSTR-2B Reconciliation Tool (Runs in Your Browser)](https://aiforseries.github.io/ai-for-cas/tools/gstr2b-reconciler.html): Reconcile GSTR-2B with your purchase register free, in your browser: nothing is uploaded. Matches on GSTIN and invoice number, ties control totals and builds the ITC bridge.
+- [AI Use Policy Template for CA Firms in India](https://aiforseries.github.io/ai-for-cas/tools/ca-firm-ai-policy-template.html): A free AI use policy template for Indian CA firms: what client data may be shared, consent, review, documentation, an engagement letter clause and an acknowledgement form.
+
+## The AI For Series
+- [Series home](https://aiforseries.github.io/): practical AI guides for finance professionals
+- AI for Tax Practitioners: Run a faster, safer GST, ITR and bookkeeping practice with Claude Code (coming soon)
+- AI for CA Students: Use Claude Code to study smarter for CA Foundation, Inter and Final, and shine in articleship, without cutting corners (coming soon)
+- AI for Internal Auditors: A practical guide to Claude Code for risk-based audits, control testing, data analytics and reporting (coming soon)
+- Excel + AI for Finance Teams: Use Claude for Excel and Claude Code to clean, reconcile, model and report, and keep your spreadsheets auditable (coming soon)
 
 ## FAQ
 - Who is AI for CAs written for? Practising Chartered Accountants, partners and managers in small and mid-size practices, articled assistants, CA students and in-house finance teams in India.

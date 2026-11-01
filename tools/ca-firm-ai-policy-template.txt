@@ -1,0 +1,158 @@
+This is a starting point, not a finished policy. Replace everything in [square brackets], delete what doesn't
+fit your practice, and have it reviewed by whoever advises your firm on IT, data protection and professional
+ethics. It is written for a small or mid-size Indian CA practice, and it is tool-neutral: it works for Claude,
+ChatGPT, Copilot, Gemini or any similar service.
+
+---
+
+[Firm name]: Policy on the use of AI tools
+
+Version: [1.0] · Approved by: [partner name] · Effective from: [date] · Next review: [date, at most 12 months later]
+
+1. Purpose and scope
+
+1.1 This policy sets out how partners, staff, articled assistants and anyone working for [Firm name] may use
+artificial intelligence (AI) tools in professional work.
+
+1.2 "AI tools" means any service that generates or analyses text, numbers, code or images on request,
+including chat assistants, coding assistants, AI features inside office, accounting or audit software, and
+browser extensions.
+
+1.3 It applies to all client work, internal work and any device used for firm work.
+
+2. Principles
+
+2.1 Confidentiality comes first. Client information is confidential. Under the Chartered Accountants
+Act, 1949, disclosing information acquired in a professional engagement without the client's consent, other
+than as the law requires, is professional misconduct. Treat sending client data to an AI service as a
+possible disclosure.
+
+2.2 Responsibility does not move. The member who signs or issues a work product is responsible for all of
+it, including anything an AI tool produced. "The AI said so" is never a reason.
+
+2.3 Send the minimum. Give an AI tool only the data the task needs. Prefer methods where the tool writes a
+formula, macro or script that runs on our own computer, so the client data itself is not sent.
+
+2.4 Verify before use. AI tools make confident mistakes, including invented sections, case law, rates
+and due dates. Every output is checked before it is relied on.
+
+3. Approved tools and accounts
+
+3.1 Only the tools listed in Annexure A may be used for firm work. To add a tool, ask [IT owner or partner].
+
+3.2 Use only firm-approved accounts for client work. Personal or free accounts must not be used with client
+information.
+
+3.3 Before a tool is approved, [IT owner] checks and records: whether our data is used to train the
+provider's models, and how to turn that off; how long data is kept; where it is processed; and the
+provider's terms for business use. These are re-checked at each policy review, because plans and settings
+change.
+
+4. What may be shared
+
+| Category | Examples | Rule |
+|---|---|---|
+| Green: no client data | Questions about law or standards, drafting templates, Excel formulas, writing a macro or script on dummy data | Allowed on approved tools |
+| Amber: client data, minimised | Column headers, a few masked sample rows, totals and counts; anonymised extracts | Allowed on approved tools, with client consent (section 5) and the steps in section 6 |
+| Red: never | Passwords, OTPs and portal or bank logins; Aadhaar and bulk PAN or KYC data; bank account details; personal data of individuals not needed for the task; material received under a confidentiality condition from a regulator, investigation or search; any other client's data | Not allowed on any AI tool |
+
+4.1 When in doubt, treat data as Red and ask [partner].
+
+4.2 If personal data of individuals is involved, the Digital Personal Data Protection Act, 2023 may apply,
+and the provider's servers may be outside India. Check with [partner or DPO] before using such data.
+
+5. Client consent
+
+5.1 Client data (Amber) may be used only where the engagement letter, or a written confirmation from the
+client, allows the use of AI tools. A sample clause is in Annexure B.
+
+5.2 For audits, investigations and other sensitive engagements, the engagement partner decides
+case by case, and records the decision in the file.
+
+6. How to use AI tools on client work
+
+6.1 Work from a separate folder for each engagement, holding copies (never originals) of only the files that
+job needs.
+
+6.2 For data work, ask the tool for a formula, macro or script that runs locally, and check it on a small
+sample before running it on the full file.
+
+6.3 Where the tool asks for permission to read files, run commands or connect to the internet, read each
+request before approving it. Refuse anything outside the engagement folder or that you did not expect.
+
+6.4 Do not paste client data into a chat when the task can be done without it.
+
+6.5 Tie the output back to the source: row counts, control totals and a sample of figures recomputed by hand.
+
+7. Review and sign-off
+
+7.1 Every section, rule, rate, due date, standard and case reference in AI output is checked against the
+primary source before use.
+
+7.2 Anything going to a client, a regulator or for signature is reviewed by a second person, who is told
+that an AI tool was used.
+
+7.3 AI output is not audit evidence by itself. Where an AI-assisted analysis supports an audit conclusion,
+the working papers show how its completeness and accuracy were tested.
+
+8. Documentation
+
+8.1 Where an AI tool was used on an engagement, the working papers record: the tool, the inputs (file names),
+what data was sent, the prompt or instructions, any script used, and the output. For example: "Prepared with
+[tool]. Inputs: [file names]. Script: [file name], saved in the job folder. Data sent: headers, 3 sample
+rows, counts. Reviewed by [name]."
+
+8.2 Scripts and outputs needed as evidence are kept with the working papers under our usual retention
+policy. Scratch files are deleted when the job closes.
+
+9. Not allowed
+
+- Using AI tools to give an opinion, sign a report or take a professional judgement on the firm's behalf.
+- Citing a section, notification, standard or case from AI output without reading the source.
+- Entering Red data (section 4) into any AI tool.
+- Using unapproved tools or personal accounts for firm work.
+- Presenting AI-written work to a client as reviewed when it has not been.
+- Using AI tools to create content that misleads, or that breaches ICAI's rules on advertising and
+  solicitation.
+
+10. Incidents
+
+10.1 If client data is sent to an AI tool in breach of this policy, or a tool behaves unexpectedly with client
+data, tell [partner] the same day. Do not try to fix it quietly.
+
+10.2 [Partner] decides on next steps, including telling the client, and whether the firm has notification
+duties under the Digital Personal Data Protection Act, 2023 and its rules. Take advice on this.
+
+11. Training and review
+
+11.1 Everyone covered by this policy reads it and signs Annexure C before using AI tools for firm work.
+
+11.2 [Partner] reviews this policy at least once a year, and whenever ICAI issues guidance on AI or
+technology, or an approved tool changes its terms.
+
+---
+
+Annexure A: Approved tools
+
+| Tool | Plan or account | Approved for | Training setting checked | Owner | Date |
+|---|---|---|---|---|---|
+| [Tool name] | [Firm business plan] | [Green and Amber] | [Off: date checked] | [Name] | [Date] |
+
+Annexure B: Sample engagement letter clause
+
+> We may use artificial intelligence tools approved by our firm to assist with parts of this engagement,
+> such as data analysis and drafting. We will limit the information shared with such tools to what the task
+> requires, use only services whose terms meet our confidentiality obligations, and review all output
+> ourselves. Responsibility for our work remains with us. If you do not want us to use such tools on your
+> information, or want to restrict their use, please tell us in writing.
+
+Annexure C: Acknowledgement
+
+I have read the [Firm name] AI Use Policy, version [1.0], and I will follow it.
+
+Name: ____________ Signature: ____________ Date: ____________
+
+---
+
+This template is general information, not legal or professional advice. Check it against current law,
+ICAI pronouncements and your firm's own obligations before adopting it.
