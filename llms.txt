@@ -8,6 +8,7 @@ A practical book for Indian Chartered Accountants, articled assistants and finan
 - [Book page](https://aiforseries.github.io/ai-for-cas/): contents, FAQ, sample prompts
 - [Buy the PDF](https://topmate.io/chandan_gupta31): ₹499; the bonus pack (109 prompts + practice files) is free here
 - [Free 20-page sample](https://www.scribd.com/document/1092378284/AI-for-CAs-Free-Sample-Claude-Code): introduction and Chapter 1, What Leaves Your Laptop
+- [Kindle on Amazon.in](https://www.amazon.in/dp/B0HQ4Q68D3)
 
 ## Chapters
 - How to Use This Book: This book shows you how to hand the mechanical part of CA work to an AI tool you run from your own laptop, keep the client data it sees to a minimum, and check what it gives back.
@@ -55,4 +56,4 @@ A practical book for Indian Chartered Accountants, articled assistants and finan
 - What is Claude Code, and what does it cost? Claude Code is Anthropic's AI tool that works on the files on your own computer. It needs a paid Claude plan; the free plan does not include it. Prices and plans change, so check Anthropic's current pricing. The book is independent and not affiliated with or endorsed by Anthropic.
 - Which version of Indian tax law does it follow? Worked examples use FY 2025-26 under the Income-tax Act, 1961, after the Finance Act, 2025, as checked on 31 October 2026. The book flags that the Income-tax Act, 2025 applies from 1 April 2026, and it tells you to check every threshold, rate and due date against current law.
 - What is free? A 20-page sample (the introduction and Chapter 1) and a bonus pack: all 109 prompts as a copy-ready file, plus the practice files, answer keys and self-check tests for the three walkthroughs.
-- Where can I buy it, and in what format? As a designed PDF (A4, 162 pages, clickable contents) for ₹499 on Topmate. A Kindle edition on Amazon.in is coming soon.
+- Where can I buy it, and in what format? As a designed PDF (A4, 162 pages, clickable contents) for ₹499 on Topmate, and as a Kindle eBook on Amazon.in.
