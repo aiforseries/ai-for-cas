@@ -43,10 +43,11 @@ A practical book for Indian Chartered Accountants, articled assistants and finan
 
 ## The AI For Series
 - [Series home](https://aiforseries.github.io/): practical AI guides for finance professionals
-- AI for Tax Practitioners: Run a faster, safer GST, ITR and bookkeeping practice with Claude Code (coming soon)
-- AI for CA Students: Use Claude Code to study smarter for CA Foundation, Inter and Final, and shine in articleship, without cutting corners (coming soon)
-- AI for Internal Auditors: A practical guide to Claude Code for risk-based audits, control testing, data analytics and reporting (coming soon)
-- Excel + AI for Finance Teams: Use Claude for Excel and Claude Code to clean, reconcile, model and report, and keep your spreadsheets auditable (coming soon)
+- [Which AI, Which Plan?](https://aiforseries.github.io/which-ai-which-plan/): How AI chat tools work, and how to choose one, in everyday analogies. For Anyone who uses AI chat tools at work.
+- [AI for Internal Auditors](https://aiforseries.github.io/ai-for-internal-auditors/): A practical guide to Claude Code for risk-based audits, control testing, data analytics and reporting. For Internal auditors, SOX and ICFR testers, audit managers and CAEs.
+- [Excel + AI for Finance Teams](https://aiforseries.github.io/excel-ai-for-finance/): Use Claude for Excel and Claude Code to clean, reconcile, model and report, and keep your spreadsheets auditable. For Accountants, controllers, FP&A analysts and AP/AR teams.
+- [AI for Tax Practitioners](https://aiforseries.github.io/ai-for-tax-practitioners/): Run a faster, safer GST, ITR and bookkeeping practice with Claude Code. For GST practitioners, income-tax consultants and small tax practices in India.
+- [AI for CA Students](https://aiforseries.github.io/ai-for-ca-students/): Use Claude Code to study smarter for CA Foundation, Inter and Final, and shine in articleship, without cutting corners. For CA Foundation, Inter and Final students and articled assistants.
 
 ## FAQ
 - Who is AI for CAs written for? Practising Chartered Accountants, partners and managers in small and mid-size practices, articled assistants, CA students and in-house finance teams in India.
